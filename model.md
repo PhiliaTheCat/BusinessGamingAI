@@ -10,13 +10,17 @@
     * 额外的分店会提高物流和管理成本；
 * 某个区划的潜在营业额是关于区划的函数，它的值不会改变：
     * 潜在营业额受到该区划居民总购买力的影响，一般而言是稳定值，在不同区划之间可能存在差异；
-* 某个区划的实际营业额是关于潜在营业额和分店数的函数，分店越多，潜在营业额转化为实际营业额的比例（上限为1）会越高
+* 某个区划的基准分店数是关于区划的函数，它的值不会改变：
+    * 基准分店数表示了将全部潜在营业额转化为实际营业额所需的最低分店数
+* 某个区划的实际营业额是关于潜在营业额，分店数和基准分店数的函数，分店越多，潜在营业额转化为实际营业额的比例（[0, 1]上的实数）会越高
 * 某个区划的实际营业额按分店比例分配给两家公司
 * 某家公司的总利润为其在各个区划实际营业额的加总再减去总成本
 
 ## 抽象过程
 
 * 在某个区划开设新分店的基础成本district.basic_cost
-* 某个企业开设新分店的额外成本company.extra_cost = company.branch_num * cost_modifier
+* 某个企业开设新分店的额外成本company.extra_cost = company.branch * company.cost_modifier
 * 某个区划的潜在营业额district.potential_sale
-* 某个区划的实际营业额district.virtual_sale = district.potential
+* 某个区划的基准分店数district.base_branch
+* 某个区划的分店数district.branch
+* 某个区划的实际营业额district.virtual_sale = district.potential_sale * min{1, district.branch / district.base_branch}
