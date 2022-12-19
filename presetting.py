@@ -22,3 +22,7 @@ def preset_district() -> list:
         res.append(District(int(row[1]), int(row[2]), int(row[3])))
     
     return res
+
+global iteration_depth, map_size
+iteration_depth = 4
+map_size = 10

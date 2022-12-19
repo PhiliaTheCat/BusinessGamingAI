@@ -24,3 +24,8 @@
 * 某个区划的基准分店数district.base_branch
 * 某个区划的分店数district.branch
 * 某个区划的实际营业额district.virtual_sale = district.potential_sale * min{1, district.branch / district.base_branch}
+
+## 剪枝
+
+* 这个问题显然不是一个零和博弈，因此传统意义上的alpha-beta剪枝不再适用
+* 为了改进这个算法，将决策树上每个结点的alpha和beta变量改为两个对象，使得alpha和beta可以同时反映两个公司的状态
