@@ -24,5 +24,5 @@ def preset_district() -> list:
     return res
 
 global iteration_depth, map_size
-iteration_depth = 4
-map_size = 10
+iteration_depth = 20
+map_size = 6
