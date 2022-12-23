@@ -1,11 +1,11 @@
 import csv 
 
-from Company import Company
-from District import District
+from module.Company import Company
+from module.District import District
 
 def preset_company() -> list:
     res = []
-    reader = csv.reader(open("./company_presetting.csv"))
+    reader = csv.reader(open("./data_set/company_presetting.csv"))
     next(reader)
 
     for row in reader:
@@ -15,7 +15,7 @@ def preset_company() -> list:
 
 def preset_district() -> list:
     res = []
-    reader = csv.reader(open("./district_presetting.csv"))
+    reader = csv.reader(open("./data_set/district_presetting.csv"))
     next(reader)
 
     for row in reader:
@@ -24,5 +24,5 @@ def preset_district() -> list:
     return res
 
 global iteration_depth, map_size
-iteration_depth = 20
+iteration_depth = 6
 map_size = 6
